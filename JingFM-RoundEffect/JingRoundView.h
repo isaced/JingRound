@@ -25,12 +25,20 @@
 
 @property (assign, nonatomic) id<JingRoundViewDelegate> delegate;
 
+//中心图像
 @property (strong, nonatomic) UIImage *roundImage;
+
+//是否播放
 @property (assign, nonatomic) BOOL isPlay;
+
+//转圈速度
 @property (assign, nonatomic) float rotationDuration;
 
 
+//开始播放
 -(void) play;
+
+//暂停
 -(void) pause;
 
 @end
