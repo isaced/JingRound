@@ -16,10 +16,29 @@
 
 @property (strong, nonatomic) UIImageView *roundImageView;
 @property (strong, nonatomic) UIImageView *playStateView;
-@property (strong, nonatomic) CABasicAnimation* rotationAnimation;
+
 @end
 
 @implementation JingRoundView
+
+
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initJingRound];
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initJingRound];
+    }
+    return self;
+}
 
 -(void) initJingRound
 {
@@ -94,7 +113,8 @@
     rotationAnimation.duration = self.rotationDuration;
     rotationAnimation.RepeatCount = FLT_MAX;
     rotationAnimation.cumulative = NO;
-    [self.roundImageView.layer addAnimation:rotationAnimation forKey:nil];
+    rotationAnimation.removedOnCompletion = NO; //No Remove
+    [self.roundImageView.layer addAnimation:rotationAnimation forKey:@"rotation"];
     
     //pause
     if (!self.isPlay) {
@@ -102,10 +122,6 @@
     }
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    [self initJingRound];
-}
 
 //setter
 -(void)setIsPlay:(BOOL)aIsPlay
