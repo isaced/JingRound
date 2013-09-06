@@ -69,7 +69,7 @@
     UIImage *stateImage;
     if (self.isPlay) {
         stateImage = [UIImage imageNamed:@"start"];
-    }else{        
+    }else{
         stateImage = [UIImage imageNamed:@"pause"];
     }
     
@@ -122,7 +122,6 @@
     }
 }
 
-
 //setter
 -(void)setIsPlay:(BOOL)aIsPlay
 {
@@ -150,42 +149,36 @@
 -(void) startRotation
 {
     //start Animation
-    CFTimeInterval pausedTime = [self.layer timeOffset];
     self.layer.speed = 1.0;
-    self.layer.timeOffset = 0.0;
     self.layer.beginTime = 0.0;
+    CFTimeInterval pausedTime = [self.layer timeOffset];
     CFTimeInterval timeSincePause = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
     self.layer.beginTime = timeSincePause;
-
+    
     //set ImgView
     self.playStateView.image = [UIImage imageNamed:@"start"];
-    self.playStateView.alpha = 0;
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.playStateView.alpha = 1;
-                     }
-                     completion:^(BOOL finished){
+                     }completion:^(BOOL finished){
                          if (finished){
                              [UIView animateWithDuration:1.0 animations:^{self.playStateView.alpha = 0;}];
                          }
                      }
      ];
-
-
-    
 }
 
 -(void) pauseRotation
 {
     //set ImgView
     self.playStateView.image = [UIImage imageNamed:@"pause"];
-    self.playStateView.alpha = 0;
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut
+    self.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.playStateView.alpha = 1;
-                     }
-                     completion:^(BOOL finished){
+                     }completion:^(BOOL finished){
                          if (finished){
+                             self.userInteractionEnabled = YES;
                              [UIView animateWithDuration:1.0 animations:^{
                                  self.playStateView.alpha = 0;
                                  //pause
@@ -196,10 +189,6 @@
                          }
                      }
      ];
-    
-
-    
-
 }
 
 -(void)play
