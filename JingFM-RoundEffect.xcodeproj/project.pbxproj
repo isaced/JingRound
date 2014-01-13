@@ -16,15 +16,13 @@
 		0DB386F217605D8400D07C57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DB386F017605D8400D07C57 /* InfoPlist.strings */; };
 		0DB386F417605D8400D07C57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB386F317605D8400D07C57 /* main.m */; };
 		0DB386F817605D8400D07C57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB386F717605D8400D07C57 /* AppDelegate.m */; };
-		0DB386FA17605D8400D07C57 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB386F917605D8400D07C57 /* Default.png */; };
-		0DB386FC17605D8400D07C57 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB386FB17605D8400D07C57 /* Default@2x.png */; };
-		0DB386FE17605D8400D07C57 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB386FD17605D8400D07C57 /* Default-568h@2x.png */; };
 		0DB3870117605D8400D07C57 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB386FF17605D8400D07C57 /* MainStoryboard.storyboard */; };
 		0DB3870417605D8400D07C57 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3870317605D8400D07C57 /* ViewController.m */; };
 		0DB3871117605EE000D07C57 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB3871017605EE000D07C57 /* QuartzCore.framework */; };
 		0DFE3E031760EBB000F3C567 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DFE3E001760EBB000F3C567 /* background.jpg */; };
 		0DFE3E041760EBB000F3C567 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFE3E011760EBB000F3C567 /* girl.png */; };
 		0DFE3E051760EBB000F3C567 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFE3E021760EBB000F3C567 /* logo.png */; };
+		B95AE94B188376280079E6A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95AE94A188376280079E6A1 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +40,6 @@
 		0DB386F517605D8400D07C57 /* JingFM-RoundEffect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JingFM-RoundEffect-Prefix.pch"; sourceTree = "<group>"; };
 		0DB386F617605D8400D07C57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DB386F717605D8400D07C57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0DB386F917605D8400D07C57 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		0DB386FB17605D8400D07C57 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		0DB386FD17605D8400D07C57 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0DB3870017605D8400D07C57 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0DB3870217605D8400D07C57 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0DB3870317605D8400D07C57 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -52,6 +47,7 @@
 		0DFE3E001760EBB000F3C567 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		0DFE3E011760EBB000F3C567 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		0DFE3E021760EBB000F3C567 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B95AE94A188376280079E6A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +122,7 @@
 				0DB386FF17605D8400D07C57 /* MainStoryboard.storyboard */,
 				0DB3870217605D8400D07C57 /* ViewController.h */,
 				0DB3870317605D8400D07C57 /* ViewController.m */,
+				B95AE94A188376280079E6A1 /* Images.xcassets */,
 				0DB386EE17605D8400D07C57 /* Supporting Files */,
 			);
 			path = "JingFM-RoundEffect";
@@ -138,9 +135,6 @@
 				0DB386F017605D8400D07C57 /* InfoPlist.strings */,
 				0DB386F317605D8400D07C57 /* main.m */,
 				0DB386F517605D8400D07C57 /* JingFM-RoundEffect-Prefix.pch */,
-				0DB386F917605D8400D07C57 /* Default.png */,
-				0DB386FB17605D8400D07C57 /* Default@2x.png */,
-				0DB386FD17605D8400D07C57 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -207,9 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB386F217605D8400D07C57 /* InfoPlist.strings in Resources */,
-				0DB386FA17605D8400D07C57 /* Default.png in Resources */,
-				0DB386FC17605D8400D07C57 /* Default@2x.png in Resources */,
-				0DB386FE17605D8400D07C57 /* Default-568h@2x.png in Resources */,
+				B95AE94B188376280079E6A1 /* Images.xcassets in Resources */,
 				0DB3870117605D8400D07C57 /* MainStoryboard.storyboard in Resources */,
 				0DFE3E031760EBB000F3C567 /* background.jpg in Resources */,
 				0DFE3E041760EBB000F3C567 /* girl.png in Resources */,
@@ -314,9 +306,12 @@
 		0DB3870817605D8400D07C57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JingFM-RoundEffect/JingFM-RoundEffect-Prefix.pch";
 				INFOPLIST_FILE = "JingFM-RoundEffect/JingFM-RoundEffect-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -325,9 +320,12 @@
 		0DB3870917605D8400D07C57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JingFM-RoundEffect/JingFM-RoundEffect-Prefix.pch";
 				INFOPLIST_FILE = "JingFM-RoundEffect/JingFM-RoundEffect-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

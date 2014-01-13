@@ -35,7 +35,7 @@
 
 -(void)playStatuUpdate:(BOOL)playState
 {
-    NSLog(@"%@...", playState ? @"播放": @"暂停了");
+    NSLog(@"%@...", playState ? @"Playing": @"Pause");
 }
 
 @end

@@ -79,8 +79,13 @@
     [self addSubview:self.playStateView];
     
     //border
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
+#define kCGImageAlphaPremultipliedLast  (kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast)
+#else
+#define kCGImageAlphaPremultipliedLast  kCGImageAlphaPremultipliedLast
+#endif
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(nil,self.frame.size.width,self.frame.size.height,8,0, colorSpace,kCGImageAlphaPremultipliedLast);
+    CGContextRef context = CGBitmapContextCreate(nil, self.frame.size.width, self.frame.size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
     CFRelease(colorSpace);
     
     CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] CGColor]);
