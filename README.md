@@ -1,7 +1,12 @@
 JingRound
 =========
 
+赶时髦用Swift也写了一遍：[JingRound-Swift](https://github.com/isaced/JingRound-Swift)
+
+rewritten from Objective-C to Swift...
+
 仿jing.fm的音乐播放视图，支持旋转和自定义参数。
+
 
 Imitation jing.fm music playing view, support rotation and custom parameters.
 
