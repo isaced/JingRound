@@ -19,20 +19,18 @@ You can Drag and Drop a UIView in Storybord or Xib,and then change its class `Ji
 
 ```
 //设置代理，获取回调事件
-self.roundView.delegate = self;
+self.roundView.delegate = self
 //设置中间的图像
-self.roundView.roundImage = [UIImage imageNamed:@"girl"]; 
-//设置转圈的速度
-self.roundView.rotationDuration = 8.0;
+self.roundView.roundImage = UIImage(named: "girl")
 //起始状态，转or不转
-self.roundView.isPlay = NO;
+self.roundView.isPlay = false
 ```
 
 暂停与播放(pause and play):
 
 ```
-[self.roundView play];
-[self.roundView pause];
+self.roundView.play()
+self.roundView.pause()
 ```
 
 当点击中间圆盘的时候会触发暂停、播放事件，当然有一个协议：`JingRoundViewDelegate`：
@@ -40,20 +38,11 @@ self.roundView.isPlay = NO;
 When you touch in the middle of the disc when it will trigger the pause, play events, of course, there is a delegate `JingRoundViewDelegate`:
 
 ```
--(void)playStatuUpdate:(BOOL)playState
-{
-    NSLog(@"%@...", playState ? @"播放": @"暂停了");
+func playStatuUpdate(playState: Bool) {
+    NSLog("%@...", playState ? "Playing": "Pause")
 }
-```
-使用的时候需要引入一下这两个库：
-
-Of course, you need to import two framework:
-
-```
-#import <QuartzCore/QuartzCore.h>
-#import <CoreGraphics/CoreGraphics.h>
 ```
 
 ###欢迎反馈(Welcomes feedback)：
 
-作者博客发布页面(Author)：[http://www.isaced.com/post-210.html](http://www.isaced.com/post-210.html) 
+作者博客地址(Author)：[http://www.isaced.com/post-210.html](http://www.isaced.com/post-210.html) 
