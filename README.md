@@ -1,7 +1,7 @@
 JingRound
 =========
 
-赶时髦用Swift也写了一遍：[JingRound-Swift](https://github.com/isaced/JingRound-Swift)
+赶时髦用Swift也写了一遍：[JingRound-Swift-Branch](https://github.com/isaced/JingRound/tree/swift)
 
 rewritten from Objective-C to Swift...
 
