@@ -116,7 +116,7 @@
     }
     
     rotationAnimation.duration = self.rotationDuration;
-    rotationAnimation.RepeatCount = FLT_MAX;
+    rotationAnimation.repeatCount = FLT_MAX;
     rotationAnimation.cumulative = NO;
     rotationAnimation.removedOnCompletion = NO; //No Remove
     [self.roundImageView.layer addAnimation:rotationAnimation forKey:@"rotation"];
