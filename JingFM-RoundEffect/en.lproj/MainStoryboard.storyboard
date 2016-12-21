@@ -1,29 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PYa-dy-7GL"/>
+                        <viewControllerLayoutGuide type="bottom" id="WkN-1O-7pj"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="iKf-VI-ZYN" customClass="JingRoundView">
-                                <rect key="frame" x="10" y="150" width="300" height="300"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-VI-ZYN" customClass="JingRoundView">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="i6M-1U-d9E"/>
+                                    <constraint firstAttribute="height" constant="300" id="qxT-qs-erj"/>
+                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" id="fag-Yq-6H9">
-                                <rect key="frame" x="111" y="50" width="92" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fag-Yq-6H9">
+                                <rect key="frame" x="141.5" y="70" width="92" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="SSX-ir-oDC"/>
+                                    <constraint firstAttribute="width" constant="92" id="nip-Hf-d56"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iKf-VI-ZYN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fag-Yq-6H9" secondAttribute="bottom" constant="20" id="11m-AB-Knc"/>
+                            <constraint firstItem="iKf-VI-ZYN" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="ISZ-aX-3N7"/>
+                            <constraint firstItem="iKf-VI-ZYN" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="KkR-ur-CAD"/>
+                            <constraint firstItem="fag-Yq-6H9" firstAttribute="top" secondItem="PYa-dy-7GL" secondAttribute="bottom" priority="999" constant="50" id="RSA-M0-qTg"/>
+                            <constraint firstItem="fag-Yq-6H9" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="UIC-OM-Zqw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WG3-In-ADC"/>
                     <connections>
@@ -41,6 +62,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>
