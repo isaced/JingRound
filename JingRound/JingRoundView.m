@@ -21,8 +21,7 @@
 
 @implementation JingRoundView
 
-
--(id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -31,7 +30,7 @@
     return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -40,11 +39,11 @@
     return self;
 }
 
--(void) initJingRound
+- (void) initJingRound
 {
     CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
     
-    //set JingRoundView
+    // set JingRoundView
     self.clipsToBounds = YES;
     self.userInteractionEnabled = YES;
     
@@ -58,14 +57,14 @@
     self.layer.shadowOffset = CGSizeMake(0, 1);
     
     
-    //set roundImageView
+    // set roundImageView
     UIImage *roundImage = self.roundImage;
     self.roundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self.roundImageView setCenter:center];
     [self.roundImageView setImage:roundImage];
     [self addSubview:self.roundImageView];
     
-    //set play state
+    // set play state
     UIImage *stateImage;
     if (self.isPlay) {
         stateImage = [UIImage imageNamed:@"start"];
@@ -78,7 +77,7 @@
     [self.playStateView setImage:stateImage];
     [self addSubview:self.playStateView];
     
-    //border
+    // border
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
 #define kCGImageAlphaPremultipliedLast  (kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast)
 #else
@@ -127,9 +126,9 @@
     }
 }
 
-//setter
--(void)setIsPlay:(BOOL)aIsPlay
-{
+#pragma mark Setter
+
+- (void)setIsPlay:(BOOL)aIsPlay {
     _isPlay = aIsPlay;
     
     if (self.isPlay) {
@@ -138,21 +137,20 @@
         [self pauseRotation];
     }
 }
--(void)setRoundImage:(UIImage *)aRoundImage
-{
+
+- (void)setRoundImage:(UIImage *)aRoundImage {
     _roundImage = aRoundImage;
     self.roundImageView.image = self.roundImage;
 }
 
-//touchesBegan
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+#pragma mark -
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     self.isPlay = !self.isPlay;
     [self.delegate playStatuUpdate:self.isPlay];
 }
 
--(void) startRotation
-{
+- (void) startRotation {
     //start Animation
     self.layer.speed = 1.0;
     self.layer.beginTime = 0.0;
@@ -173,8 +171,7 @@
      ];
 }
 
--(void) pauseRotation
-{
+- (void) pauseRotation {
     //set ImgView
     self.playStateView.image = [UIImage imageNamed:@"pause"];
     self.userInteractionEnabled = NO;
@@ -196,12 +193,11 @@
      ];
 }
 
--(void)play
-{
+- (void)play {
     self.isPlay = YES;
 }
--(void)pause
-{
+
+- (void)pause {
     self.isPlay = NO;
 }
 

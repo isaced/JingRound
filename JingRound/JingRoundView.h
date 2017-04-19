@@ -8,37 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
-////////////
-//delegate//
-////////////
 @protocol JingRoundViewDelegate <NSObject>
 
 -(void) playStatuUpdate:(BOOL)playState;
 
 @end
 
-
-//////////////
-//@interface//
-//////////////
 @interface JingRoundView : UIView
 
-@property (assign, nonatomic) id<JingRoundViewDelegate> delegate;
+@property (weak, nonatomic) id<JingRoundViewDelegate> delegate;
 
-//中心图像
+/// 中心图像
 @property (strong, nonatomic) UIImage *roundImage;
 
-//是否播放
+/// 是否播放
 @property (assign, nonatomic) BOOL isPlay;
 
-//转圈速度
+/// 转圈速度
 @property (assign, nonatomic) float rotationDuration;
 
 
-//开始播放
+/// 开始播放
 -(void) play;
 
-//暂停
+/// 暂停
 -(void) pause;
 
 @end
