@@ -27,7 +27,7 @@ self.roundView.roundImage = [UIImage imageNamed:@"girl"];
 self.roundView.rotationSpeed = 3.0;
 ```
 
-暂停与继续 (resume and play):
+暂停与继续 (resume and pause):
 
 ```
 [self.roundView resume];
