@@ -21,8 +21,7 @@
 
 @implementation JingRoundView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self initJingRound];
@@ -30,8 +29,7 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self initJingRound];
@@ -39,8 +37,7 @@
     return self;
 }
 
-- (void) initJingRound
-{
+- (void) initJingRound {
     CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
     
     // set JingRoundView
@@ -56,7 +53,6 @@
     self.layer.shadowOpacity = 0.6;
     self.layer.shadowOffset = CGSizeMake(0, 1);
     
-    
     // set roundImageView
     UIImage *roundImage = self.roundImage;
     self.roundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -66,7 +62,7 @@
     
     // set play state
     UIImage *stateImage;
-    if (self.isPlay) {
+    if (self.isRotating) {
         stateImage = [UIImage imageNamed:@"start"];
     }else{
         stateImage = [UIImage imageNamed:@"pause"];
@@ -105,100 +101,80 @@
     [self addSubview:imgv];
     
     //Rotation
+    [self addRotationAnimation];
+    
+    _isRotating = YES;
+}
+
+- (void)addRotationAnimation {
     CABasicAnimation* rotationAnimation;
     rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
-    
-    //default RotationDuration value
-    if (self.rotationDuration == 0) {
-        self.rotationDuration = kRotationDuration;
-    }
-    
-    rotationAnimation.duration = self.rotationDuration;
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0];
+    rotationAnimation.duration = kRotationDuration;
     rotationAnimation.repeatCount = FLT_MAX;
     rotationAnimation.cumulative = NO;
-    rotationAnimation.removedOnCompletion = NO; //No Remove
-    [self.roundImageView.layer addAnimation:rotationAnimation forKey:@"rotation"];
-    
-    //pause
-    if (!self.isPlay) {
-        self.layer.speed = 0.0;
-    }
+    rotationAnimation.removedOnCompletion = NO; // No Remove
+    [self.roundImageView.layer addAnimation:rotationAnimation forKey:@"jinground.rotation"];
 }
 
 #pragma mark Setter
-
-- (void)setIsPlay:(BOOL)aIsPlay {
-    _isPlay = aIsPlay;
-    
-    if (self.isPlay) {
-        [self startRotation];
-    }else{
-        [self pauseRotation];
-    }
-}
 
 - (void)setRoundImage:(UIImage *)aRoundImage {
     _roundImage = aRoundImage;
     self.roundImageView.image = self.roundImage;
 }
 
-#pragma mark -
+- (void)setRotationSpeed:(float)rotationSpeed {
+    _rotationSpeed = rotationSpeed;
+
+    self.roundImageView.layer.timeOffset = [self.roundImageView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    self.roundImageView.layer.beginTime = CACurrentMediaTime();
+    self.roundImageView.layer.speed = rotationSpeed;
+}
+
+#pragma mark Action
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPlay = !self.isPlay;
-    [self.delegate playStatuUpdate:self.isPlay];
+    if (_isRotating) {
+        [self pause];
+    }else{
+        [self resume];
+    }
+
+    if ([self.delegate respondsToSelector:@selector(playStatuUpdate:)]) {
+        [self.delegate playStatuUpdate:_isRotating];
+    }
 }
 
-- (void) startRotation {
-    //start Animation
-    self.layer.speed = 1.0;
-    self.layer.beginTime = 0.0;
-    CFTimeInterval pausedTime = [self.layer timeOffset];
-    CFTimeInterval timeSincePause = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-    self.layer.beginTime = timeSincePause;
+- (void)resume {
+    CFTimeInterval pausedTime = [self.roundImageView.layer timeOffset];
+    self.roundImageView.layer.speed = 1;
+    self.roundImageView.layer.timeOffset = 0.0;
+    self.roundImageView.layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [self.roundImageView.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    self.roundImageView.layer.beginTime = timeSincePause;
     
-    //set ImgView
+    [self setRotationSpeed:_rotationSpeed];
+    
+    _isRotating = YES;
+    
     self.playStateView.image = [UIImage imageNamed:@"start"];
-    [UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.playStateView.alpha = 1;
-                     }completion:^(BOOL finished){
-                         if (finished){
-                             [UIView animateWithDuration:1.0 animations:^{self.playStateView.alpha = 0;}];
-                         }
-                     }
-     ];
-}
-
-- (void) pauseRotation {
-    //set ImgView
-    self.playStateView.image = [UIImage imageNamed:@"pause"];
-    self.userInteractionEnabled = NO;
-    [UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.playStateView.alpha = 1;
-                     }completion:^(BOOL finished){
-                         if (finished){
-                             self.userInteractionEnabled = YES;
-                             [UIView animateWithDuration:1.0 animations:^{
-                                 self.playStateView.alpha = 0;
-                                 //pause
-                                 CFTimeInterval pausedTime = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil];
-                                 self.layer.speed = 0.0;
-                                 self.layer.timeOffset = pausedTime;
-                             }];
-                         }
-                     }
-     ];
-}
-
-- (void)play {
-    self.isPlay = YES;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.playStateView.alpha = 0.0;
+    }];
 }
 
 - (void)pause {
-    self.isPlay = NO;
+    CFTimeInterval pausedTime = [self.roundImageView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    self.roundImageView.layer.speed = 0.0;
+    self.roundImageView.layer.timeOffset = pausedTime;
+    
+    _isRotating = NO;
+    
+    self.playStateView.image = [UIImage imageNamed:@"pause"];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.playStateView.alpha = 1.0;
+    }];
 }
 
 @end

@@ -23,8 +23,7 @@
     
     self.roundView.delegate = self;
     self.roundView.roundImage = [UIImage imageNamed:@"girl"];
-    self.roundView.rotationDuration = 8.0;
-    self.roundView.isPlay = NO;
+    self.roundView.rotationSpeed = 3.0;
 }
 
 - (void)didReceiveMemoryWarning

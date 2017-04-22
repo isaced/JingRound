@@ -22,16 +22,16 @@
 @property (strong, nonatomic) UIImage *roundImage;
 
 /// 是否播放
-@property (assign, nonatomic) BOOL isPlay;
+@property (assign, nonatomic, readonly) BOOL isRotating;
 
 /// 转圈速度
-@property (assign, nonatomic) float rotationDuration;
+@property (assign, nonatomic) float rotationSpeed;
 
 
-/// 开始播放
--(void) play;
+/// 继续播放
+- (void)resume;
 
 /// 暂停
--(void) pause;
+- (void)pause;
 
 @end
