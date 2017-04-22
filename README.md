@@ -12,7 +12,7 @@ Imitation jing.fm music playing view, support rotation and custom parameters.
 
 ![image](https://raw.github.com/isaced/JingRound/master/Screenshot.png)
 
-### 使用说明(Usage)：
+### 使用说明 (Usage)：
 
 可以在Storybord、Xib直接拖个View然后更改其类为`JingRoundView`，设置基本属性即可:
 
@@ -24,15 +24,13 @@ self.roundView.delegate = self;
 //设置中间的图像
 self.roundView.roundImage = [UIImage imageNamed:@"girl"]; 
 //设置转圈的速度
-self.roundView.rotationDuration = 8.0;
-//起始状态，转or不转
-self.roundView.isPlay = NO;
+self.roundView.rotationSpeed = 3.0;
 ```
 
-暂停与播放(pause and play):
+暂停与继续 (resume and play):
 
 ```
-[self.roundView play];
+[self.roundView resume];
 [self.roundView pause];
 ```
 
@@ -55,6 +53,6 @@ Of course, you need to import two framework:
 #import <CoreGraphics/CoreGraphics.h>
 ```
 
-### 欢迎反馈(Welcomes feedback)：
+### 欢迎反馈 (Welcomes feedback)：
 
 作者博客发布页面(Author)：[http://www.isaced.com/post-210.html](http://www.isaced.com/post-210.html) 
